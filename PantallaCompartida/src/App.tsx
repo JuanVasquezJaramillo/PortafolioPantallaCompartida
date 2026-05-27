@@ -17,7 +17,7 @@ import {
 
 import Console64 from './components/Consola64';
 import CRT_TV from './components/CRT_TV';
-import CartridgesShelf from './components/estanteCartuchos';
+import CartridgesShelf from './components/EstanteCartuchos.tsx';
 
 export default function App() {
   const [selectedCartridge, setSelectedCartridge] = useState<Cartridge | null>(null);
