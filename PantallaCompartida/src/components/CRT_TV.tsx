@@ -166,7 +166,7 @@ export default function CRT_TV({
       return (
         <div id="tv-screen-off" className="w-full h-full bg-[#0a0a0c] relative flex items-center justify-center">
           <div className="absolute inset-0 bg-radial from-transparent to-black pointer-events-none opacity-80" />
-          <span className="text-[7px] font-retro text-neutral-800 tracking-wider">STANBY</span>
+          <span className="text-[7px] font-retro text-neutral-800 tracking-wider">SIN SEÑAL</span>
         </div>
       );
     }
@@ -766,7 +766,7 @@ export default function CRT_TV({
         <div className="flex items-center space-x-1 justify-center mt-3 md:mt-2">
           <div className={`w-1.5 h-1.5 rounded-full ${tvPower ? 'bg-emerald-500 led-glow-green animate-pulse' : 'bg-red-950/40'}`} />
           <span className="text-[6.5px] font-mono text-zinc-500 uppercase tracking-widest">
-            {tvPower ? 'OP_ON' : 'STBY'}
+            {tvPower ? 'ENCENDIDO' : 'APAGADO'}
           </span>
         </div>
 
