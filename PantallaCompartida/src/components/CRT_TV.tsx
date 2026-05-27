@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { 
-  Play, Pause, Volume2, SkipForward, Disc, Film, Tv, Radio, 
-  Wind, Flame, Compass, HelpCircle, Activity, SkipBack, Shuffle
-} from 'lucide-react';
-import type { Cartridge, Track, SoundElement } from '../types';
+  Play, Pause, Volume2, SkipForward, Tv, Radio, Compass, Activity, SkipBack } from 'lucide-react';
+import type { Cartridge, SoundElement } from '../types';
 import { 
   playPowerToggle, 
   startElementDrone, 
@@ -23,7 +21,6 @@ export default function CRT_TV({
   insertedCartridge,
   powerOn,
   isBooting,
-  onReset,
 }: CRT_TVProps) {
   
   const [tvPower, setTvPower] = useState(true); // TV set power itself

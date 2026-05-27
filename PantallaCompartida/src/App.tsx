@@ -3,11 +3,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect } from 'react';
+import { useState} from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
-  Tv, Radio, Sparkles, HelpCircle, GraduationCap, ChevronRight, BookOpen, Layers
-} from 'lucide-react';
+import {Sparkles, HelpCircle, BookOpen } from 'lucide-react';
 import { UNIVERSITY_PROJECTS } from './data/projects';
 import type { Cartridge } from './types';
 import { 

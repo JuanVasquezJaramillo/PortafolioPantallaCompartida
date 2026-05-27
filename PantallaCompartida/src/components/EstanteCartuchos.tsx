@@ -1,6 +1,5 @@
 import { motion } from 'motion/react';
-import { 
-  Play, Maximize2, Mic, Film, Compass, Rocket, Music, CheckCircle
+import { Mic, Film, Compass, Rocket, Music, CheckCircle
 } from 'lucide-react';
 import type { Cartridge } from '../types';
 
