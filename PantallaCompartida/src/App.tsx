@@ -111,9 +111,9 @@ export default function App() {
           <span className="text-[11px] font-mono uppercase text-zinc-300">
             {powerOn 
               ? selectedCartridge 
-                ? `PLAYING: ${selectedCartridge.title.substring(0, 15)}..`
-                : 'CONSOLE_ON_EMPTY_SLOT'
-              : 'CONSOLE_STBY'}
+                ? `REPRODUCIENDO: ${selectedCartridge.title.substring(0, 15)}..`
+                : 'CONSOLA ENCENDIDA - SIN CARTUCHO'
+              : 'CONSOLA APAGADA - INSERTE CARTUCHO'}
           </span>
         </div>
       </header>
@@ -301,7 +301,15 @@ export default function App() {
       {/* FOOTER METADATA CREDIT SIGNATURE */}
       <footer className="max-w-6xl w-full mx-auto border-t border-zinc-850/60 mt-10 pt-4 pb-2 flex flex-col sm:flex-row justify-between items-center text-zinc-600 text-[10px] font-mono z-10 space-y-2.5 sm:space-y-0">
         <div className="flex items-center space-x-1.5">
-          <span>CREADO PARA UNIVERSIDAD DEL CAUCA 2026-I</span>
+          <span>CREADO PARA LA UNIVERSIDAD DEL CAUCA 2026-I</span>
+        </div>
+        <div className="flex list space-x-1.5">
+          <ul>
+            <li>AUTORES:</li>
+            <li>DESARROLLADOR WEB Juan Pablo Vásquez Jaramillo</li>
+            <li>Michin Ordoñez</li>
+            <li>Laura, ¿me rascas?</li>
+          </ul>
         </div>
         <div className="flex items-center space-x-4">
           <span>SISTEMA EMULADO 64 (STDL-VOLT)</span>
