@@ -193,7 +193,7 @@ export default function CRT_TV({
           </div>
 
           <div className="text-[7.5px] text-zinc-500 z-20 text-center uppercase">
-            N64 PORTAFOLIO MULTIMEDIA
+            Pantalla Compartida portafolio multimedia
           </div>
         </div>
       );
@@ -237,7 +237,7 @@ export default function CRT_TV({
             transition={{ delay: 0.5, duration: 0.5 }}
             className="text-[12px] font-retro text-[#ffe135] tracking-widest text-shadow"
           >
-            UNIVERSIDAD 64
+            UNIVERSIDAD DEL CAUCA
           </motion.p>
 
           <motion.p
@@ -246,7 +246,7 @@ export default function CRT_TV({
             transition={{ delay: 1.1 }}
             className="text-[7.5px] font-mono uppercase text-sky-400 tracking-wider mt-1.5"
           >
-            Licenciado por el Consejo Estudiantil
+            Licenciado por Pantalla compartida
           </motion.p>
 
           <div className="absolute bottom-3 text-[6.5px] font-mono text-zinc-500">
