@@ -277,7 +277,7 @@ export default function App() {
                     <BookOpen size={20} />
                   </div>
                   <h4 className="text-zinc-350 text-xs font-bold uppercase tracking-wide">
-                    Consola Vacía / Esperando Obra
+                    Consola Vacía / Esperando CARTUCHO
                   </h4>
                   <p className="text-zinc-550 text-[11px] max-w-xs leading-relaxed">
                     Selecciona uno de los cartuchos de plástico del estante de abajo para encajarlo en los lectores de cobre de la ranura.
