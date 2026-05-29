@@ -1,73 +1,84 @@
-# React + TypeScript + Vite
+# PantallaCompartida
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web de portfolio con estética retro que muestra pantallas interactivas (video, podcast, estática, boot screen) y efectos visuales.
 
-Currently, two official plugins are available:
+## Propósito
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+`PantallaCompartida` es un proyecto de demostración y portfolio que agrupa proyectos multimedia dentro de una interfaz inspirada en pantallas antiguas (CRT). Está pensado para exponer demos, videos y experiencias interactivas con estilo nostálgico.
 
-## React Compiler
+## Tecnologías
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Vite
+- React
+- TypeScript
+- CSS
 
-## Expanding the ESLint configuration
+## Requisitos
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Node.js v16+ (recomendado)
+- npm o yarn
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Instalación
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1. Clona el repositorio:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+   git clone <url-del-repo>
+   cd PantallaCompartida
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Instala las dependencias:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+   npm install
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+3. Inicia el servidor de desarrollo:
+
+   npm run dev
+
+Abre la URL que indique Vite (por defecto http://localhost:5173).
+
+## Scripts comunes
+
+- `npm run dev` — Inicia el servidor de desarrollo con HMR.
+- `npm run build` — Genera la versión optimizada para producción.
+- `npm run preview` — Sirve la build para previsualizarla localmente.
+
+## Estructura del proyecto (resumen)
+
+- [src/App.tsx](src/App.tsx) — Componente raíz.
+- [src/main.tsx](src/main.tsx) — Punto de montaje de React.
+- [src/components](src/components) — Componentes reutilizables, incluye `pantallas/` con las distintas vistas.
+- [src/assets](src/assets) — Imágenes y recursos estáticos.
+- [src/data/projects.ts](src/data/projects.ts) — Datos de los proyectos mostrados.
+- [src/utils](src/utils) — Utilidades (p. ej. efectos de audio).
+
+## Uso / Ejemplos
+
+- Desarrollo rápido:
+
+  npm run dev
+
+  Luego abrir la URL indicada por Vite.
+
+- Generar y probar producción:
+
+  npm run build
+  npm run preview
+
+## Contribuciones
+
+1. Haz fork y crea una rama descriptiva (`feature/mi-cambio`).
+2. Asegúrate de que los cambios funcionan en desarrollo.
+3. Envía un pull request con una descripción clara de los cambios.
+
+## Notas y recomendaciones
+
+- Los componentes de las pantallas están en [src/components/pantallas](src/components/pantallas).
+- Ajusta sonidos y efectos en [src/utils/audioEffects.ts](src/utils/audioEffects.ts) si trabajas con audio.
+- Para añadir proyectos, edita [src/data/projects.ts](src/data/projects.ts).
+
+## Licencia
+
+PANTALLA COMPARTIDA - UNICAUCA 2026 ©️
+
+## Contacto
+
+Si tienes preguntas o sugerencias, abre un issue en el repositorio o contacta al autor.
