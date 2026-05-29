@@ -200,7 +200,7 @@ export default function CRT_TV({
       return (
         <div id="tv-screen-off" className="w-full h-full bg-[#0a0a0c] relative flex items-center justify-center">
           <div className="absolute inset-0 bg-radial from-transparent to-black pointer-events-none opacity-80" />
-          <span className="text-[7px] font-retro text-neutral-800 tracking-wider">STANBY</span>
+          <span className="text-[7px] font-retro text-neutral-800 tracking-wider">SIN SEÑAL</span>
         </div>
       );
     }
@@ -227,7 +227,7 @@ export default function CRT_TV({
           </div>
 
           <div className="text-[7.5px] text-zinc-500 z-20 text-center uppercase">
-            N64 PORTAFOLIO MULTIMEDIA
+             Pantalla Compartida portafolio multimedia
           </div>
         </div>
       );
@@ -271,7 +271,7 @@ export default function CRT_TV({
             transition={{ delay: 0.5, duration: 0.5 }}
             className="text-[12px] font-retro text-[#ffe135] tracking-widest text-shadow"
           >
-            UNIVERSIDAD 64
+            UNIVERSIDAD DEL CAUCA
           </motion.p>
 
           <motion.p
@@ -280,7 +280,7 @@ export default function CRT_TV({
             transition={{ delay: 1.1 }}
             className="text-[7.5px] font-mono uppercase text-sky-400 tracking-wider mt-1.5"
           >
-            Licenciado por el Consejo Estudiantil
+            Licenciado por Pantalla Compartida - 2026
           </motion.p>
 
           <div className="absolute bottom-3 text-[6.5px] font-mono text-zinc-500">
@@ -836,7 +836,7 @@ export default function CRT_TV({
         <div className="flex items-center space-x-1 justify-center mt-3 md:mt-2">
           <div className={`w-1.5 h-1.5 rounded-full ${tvPower ? 'bg-emerald-500 led-glow-green animate-pulse' : 'bg-red-950/40'}`} />
           <span className="text-[6.5px] font-mono text-zinc-500 uppercase tracking-widest">
-            {tvPower ? 'OP_ON' : 'STBY'}
+            {tvPower ? 'ENCENDIDO' : 'APAGADO'}
           </span>
         </div>
 

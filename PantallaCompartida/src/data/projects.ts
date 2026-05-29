@@ -32,7 +32,7 @@ export const UNIVERSITY_PROJECTS: Cartridge[] = [
     author: 'Escuela de Cine y Artes Visuales',
     year: '2025',
     videoSnippet: 'Explorando la carrera séptima aérea con carros flotantes y vendedores ambulantes de arepas sintéticas.',
-    videoEmbedUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&playlist=dQw4w9WgXcQ&loop=1&controls=0',
+    videoEmbedUrl: 'https://www.youtube-nocookie.com/embed/vWOJuQ5IYiU?autoplay=1&mute=0&playlist=vWOJuQ5IYiU&loop=1&controls=0',
   },
   {
     id: 'sinfonia-elementos',
