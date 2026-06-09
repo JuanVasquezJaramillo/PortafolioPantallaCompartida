@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Volume2, Tv } from 'lucide-react';
+import { useState, useRef, useEffect, useCallback } from 'react';
+import { Volume2, Tv, Maximize2, Minimize2 } from 'lucide-react';
 import type { Cartridge } from '../types';
 import { playPowerToggle } from '../utils/audioEffects';
 
@@ -21,10 +21,27 @@ export default function CRT_TV({
   powerOn,
   isBooting,
 }: CRT_TVProps) {
-  const [tvPower, setTvPower] = useState(true); // TV set power itself
+  const [tvPower, setTvPower] = useState(true);
   const [volume, setVolume] = useState(70);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const screenRef = useRef<HTMLDivElement>(null);
 
-  // Switch physical TV toggle switch (sound click)
+  useEffect(() => {
+    const handleFsChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+    document.addEventListener('fullscreenchange', handleFsChange);
+    return () => document.removeEventListener('fullscreenchange', handleFsChange);
+  }, []);
+
+  const toggleFullscreen = useCallback(() => {
+    if (!document.fullscreenElement) {
+      screenRef.current?.requestFullscreen();
+    } else {
+      document.exitFullscreen();
+    }
+  }, []);
+
   const toggleTvDial = () => {
     playPowerToggle();
     setTvPower(prev => !prev);
@@ -80,7 +97,10 @@ export default function CRT_TV({
       <div className="absolute inset-x-0 bottom-0 h-1.5 bg-black/40 rounded-b-2xl pointer-events-none" />
 
       {/* LEFT CHASSIS: Screen Bezel */}
-      <div className="flex-grow bg-black p-3 rounded-[30px] border-4 border-[#222226] relative crt-screen crt-glow overflow-hidden shadow-inner flex flex-col">
+      <div
+        ref={screenRef}
+        className={`flex-grow bg-black p-3 rounded-[30px] border-4 border-[#222226] relative crt-screen crt-glow overflow-hidden shadow-inner flex flex-col ${isFullscreen ? '!rounded-none !border-0' : ''}`}
+      >
         {/* Bezel inner highlight */}
         <div className="absolute inset-0 border border-white/5 rounded-[22px] pointer-events-none z-30" />
         
@@ -89,6 +109,15 @@ export default function CRT_TV({
           
           {/* Render Active/On screen layout */}
           {renderScreenContent()}
+
+          {/* Fullscreen hint overlay */}
+          {isFullscreen && (
+            <div className="absolute top-2 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 hover:opacity-100 transition-opacity duration-300">
+              <span className="text-[8px] font-mono text-white/50 bg-black/60 px-2 py-1 rounded-full">
+                ESC para salir de pantalla completa
+              </span>
+            </div>
+          )}
 
           {/* CRT scanline glare & physical static flare elements */}
           {tvPower && (
@@ -166,6 +195,21 @@ export default function CRT_TV({
               <Tv size={11} />
             </button>
             <span className="text-[7.5px] font-mono text-zinc-500 mt-1 uppercase">TV SW</span>
+          </div>
+
+          {/* Fullscreen toggle button */}
+          <div className="flex flex-col items-center justify-center">
+            <button
+              onClick={toggleFullscreen}
+              className={`w-7 h-7 rounded-md border-b-2 flex items-center justify-center transition-all cursor-pointer ${
+                isFullscreen
+                  ? 'bg-emerald-600 hover:brightness-105 active:scale-95 border-emerald-800 text-white'
+                  : 'bg-zinc-800 border-zinc-950 text-zinc-400 hover:bg-zinc-700'
+              }`}
+            >
+              {isFullscreen ? <Minimize2 size={11} /> : <Maximize2 size={11} />}
+            </button>
+            <span className="text-[7.5px] font-mono text-zinc-500 mt-1 uppercase">ZOOM</span>
           </div>
 
         </div>
