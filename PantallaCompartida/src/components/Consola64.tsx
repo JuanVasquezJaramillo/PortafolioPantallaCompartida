@@ -41,7 +41,7 @@ export default function Console64({
   return (
     <div id="n64-console-root" className="w-full max-w-xl mx-auto my-6 relative filter drop-shadow-2xl">
       {/* Console Top View Shell */}
-      <div className="bg-gradient-to-b from-[#2a2b30] via-[#1f2024] to-[#141517] rounded-3xl p-6 sm:p-8 n64-shadow border border-zinc-700/30 relative plastic-texture overflow-hidden">
+      <div className="bg-gradient-to-b from-[#2a2b30] via-[#1f2024] to-[#141517] rounded-3xl p-6 sm:p-8 n64-shadow border border-zinc-700/30 relative plastic-texture overflow-visible">
         
         {/* Subtle physical air vents on the sides */}
         <div className="absolute top-4 left-6 flex space-x-1 opacity-40">
@@ -67,7 +67,7 @@ export default function Console64({
           </span>
 
           {/* Real simulated cartridge slot */}
-          <div className="w-64 sm:w-80 h-16 bg-gradient-to-b from-zinc-950 to-zinc-900 rounded-2xl border-2 border-zinc-700/50 flex items-center justify-center relative shadow-inner overflow-hidden">
+          <div className="w-64 sm:w-80 h-16 bg-gradient-to-b from-zinc-950 to-zinc-900 rounded-2xl border-2 border-zinc-700/50 flex items-center justify-center relative shadow-inner overflow-visible">
             
             {/* If no cartridge is inserted, show spring dust flaps */}
             {!insertedCartridge ? (
