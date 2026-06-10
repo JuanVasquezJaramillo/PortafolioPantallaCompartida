@@ -9,7 +9,7 @@ interface VideoScreenProps {
 export default function VideoScreen({ insertedCartridge, volume }: VideoScreenProps) {
   const [videoPlayhead, setVideoPlayhead] = useState(15); // Simulated seconds
   const [videoSubtitleIdx, setVideoSubtitleIdx] = useState(0);
-  const [videoMode, setVideoMode] = useState<'real' | 'simulated'>('real');
+  const [videoMode] = useState<'real' | 'simulated'>('real');
 
   const videoSubtitles = [
     { es: "[Motor de fusión zumbando] Iniciando descenso en la Carrera Séptima.", en: "[Fusion engines humming] Initiating descent over Seventh Avenue." },
