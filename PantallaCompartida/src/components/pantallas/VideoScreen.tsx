@@ -9,7 +9,7 @@ interface VideoScreenProps {
 export default function VideoScreen({ insertedCartridge, volume }: VideoScreenProps) {
   const [videoPlayhead, setVideoPlayhead] = useState(15); // Simulated seconds
   const [videoSubtitleIdx, setVideoSubtitleIdx] = useState(0);
-  const [videoMode, setVideoMode] = useState<'real' | 'simulated'>('real');
+  const [videoMode] = useState<'real' | 'simulated'>('real');
 
   const videoSubtitles = [
     { es: "[Motor de fusión zumbando] Iniciando descenso en la Carrera Séptima.", en: "[Fusion engines humming] Initiating descent over Seventh Avenue." },
@@ -100,15 +100,6 @@ export default function VideoScreen({ insertedCartridge, volume }: VideoScreenPr
         {showReal ? (
           <div className="absolute inset-x-2 top-2 bottom-2 bg-neutral-950 border border-zinc-900 rounded overflow-hidden z-10">
             {renderRealVideo(insertedCartridge.videoEmbedUrl || '')}
-            {/* Overlay subtitles on top of native stream for retro cinema mode */}
-            <div className="absolute bottom-2 inset-x-2 text-center bg-black/85 px-2 py-1.5 rounded border border-zinc-800/50 z-20 pointer-events-none">
-              <p className="text-[9.5px] font-sans text-yellow-350 font-medium leading-tight text-shadow">
-                {videoSubtitles[videoSubtitleIdx].es}
-              </p>
-              <p className="text-[7.5px] text-zinc-400 font-sans italic tracking-wide mt-0.5 leading-none">
-                {videoSubtitles[videoSubtitleIdx].en}
-              </p>
-            </div>
           </div>
         ) : (
           /* Virtual vector vector-grid */
@@ -173,7 +164,7 @@ export default function VideoScreen({ insertedCartridge, volume }: VideoScreenPr
               style={{ width: `${(videoPlayhead / 180) * 100}%` }}
             />
           </div>
-          <span>03:00</span>
+          <span>37:58</span>
         </div>
 
         {/* Info text box and switch mode button */}
@@ -186,21 +177,6 @@ export default function VideoScreen({ insertedCartridge, volume }: VideoScreenPr
               AUTOR: {insertedCartridge.author.substring(0, 15)}...
             </span>
           </div>
-          
-          {/* Switch view mode interactive action button */}
-          {insertedCartridge.videoEmbedUrl && (
-            <button 
-              onClick={() => setVideoMode(prev => prev === 'real' ? 'simulated' : 'real')}
-              className={`px-1.5 py-0.5 rounded text-[7px] font-bold border transition duration-150 cursor-pointer ${
-                videoMode === 'real'
-                  ? 'bg-blue-600 text-white border-blue-400 hover:bg-blue-500'
-                  : 'bg-zinc-800 text-zinc-300 border-zinc-700 hover:bg-zinc-700'
-              }`}
-            >
-              {videoMode === 'real' ? '📡 CAMBIAR RETRO' : '📺 REPRODUCIR'}
-            </button>
-          )}
-
           <span className="text-zinc-400 border border-zinc-800 bg-zinc-900 px-1 py-0.5 rounded font-bold uppercase">
             {insertedCartridge.category.split(' ')[0]}
           </span>

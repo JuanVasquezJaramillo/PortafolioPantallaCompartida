@@ -38,7 +38,7 @@ export default function CartridgesShelf({
           </h3>
         </div>
         <span className="text-[9px] font-mono text-zinc-500 uppercase tracking-widest">
-          Sinfonías / Podcasts / Videos
+          Documentales / Podcasts / Videos
         </span>
       </div>
 

@@ -60,7 +60,7 @@ export default function AcademicSheet({ selectedCartridge, powerOn }: AcademicSh
               <div className="flex justify-between items-center pt-2 pb-2">
                 <span className="text-zinc-500 font-mono text-[10px] uppercase">Formato de Obra</span>
                 <span className="text-[#3dfa3d] text-[11px] font-mono uppercase">
-                  {selectedCartridge.mediaType === 'podcast' ? '📻 Podcast Estéreo' : selectedCartridge.mediaType === 'video' ? '🎬 Cortometraje 3D' : '💻 Docu-web Interactivo'}
+                  {selectedCartridge.mediaType === 'podcast' ? '📻 Podcast Estéreo' : selectedCartridge.mediaType === 'video' ? '🎬 Documental Audiovisual' : '💻 Docu-web Interactivo'}
                 </span>
               </div>
               <div className="flex justify-between items-center pt-2">

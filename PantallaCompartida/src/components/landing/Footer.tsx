@@ -1,4 +1,4 @@
-import { MessageCircle, Instagram, Facebook } from 'lucide-react';
+import { MessageCircle, Instagram, Youtube } from 'lucide-react';
 
 export default function Footer() {
     return (
@@ -11,7 +11,7 @@ export default function Footer() {
                 <div className="flex flex-col items-center md:items-start space-y-1.5">
                     <span className="text-[9px] text-zinc-500 uppercase tracking-widest">¿Preguntas?</span>
                     <a
-                        href="https://wa.me/573000000000?text=Hola!%20Me%20interesa%20conocer%20más%20sobre%20el%20portafolio%20multimedia"
+                        href="https://wa.me/573005660574?text=Hola!%20Me%20interesa%20conocer%20más%20sobre%20PantallaCompartida!%20¿Podrías%20darme%20más%20información?"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center space-x-2 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/20 px-4 py-2 rounded-lg text-[11px] font-bold tracking-tight hover:border-emerald-500/40 transition-all duration-150 active:scale-95 cursor-pointer shadow-sm"
@@ -28,7 +28,7 @@ export default function Footer() {
 
                         {/* TikTok */}
                         <a
-                            href="https://www.tiktok.com"
+                            href="https://www.tiktok.com/@dacashadow"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="px-3 py-2 bg-zinc-950 hover:bg-zinc-900 border border-zinc-800/80 hover:border-zinc-700 rounded-lg text-[10px] font-bold text-zinc-300 flex items-center space-x-1.5 tracking-tight transition-all duration-150 active:scale-95 cursor-pointer"
@@ -42,7 +42,7 @@ export default function Footer() {
 
                         {/* Instagram */}
                         <a
-                            href="https://www.instagram.com"
+                            href="https://www.instagram.com/pc_pantallacompartida/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="px-3 py-2 bg-zinc-950 hover:bg-zinc-900 border border-zinc-800/80 hover:border-zinc-700 rounded-lg text-[10px] font-bold text-zinc-300 flex items-center space-x-1.5 tracking-tight transition-all duration-150 active:scale-95 cursor-pointer"
@@ -51,16 +51,16 @@ export default function Footer() {
                             <span>INSTAGRAM</span>
                         </a>
 
-                        {/* Facebook */}
+                        {/* YouTube */}
                         <a
-                            href="https://www.facebook.com"
+                            href="https://www.youtube.com/@pantallacompartida-w3l"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="px-3 py-2 bg-zinc-950 hover:bg-zinc-900 border border-zinc-800/80 hover:border-zinc-700 rounded-lg text-[10px] font-bold text-zinc-300 flex items-center space-x-1.5 tracking-tight transition-all duration-150 active:scale-95 cursor-pointer"
                         >
-                            {/**CAMBIAR EL ICONO DE FACEBOOK */}
-                            <Facebook size={12} className="text-blue-600" />
-                            <span>FACEBOOK</span>
+                            {/**CAMBIAR EL ICONO DE YOUTUBE */}
+                            <Youtube size={12} className="text-[#FF0000]" />
+                            <span>YOUTUBE</span>
                         </a>
 
                     </div>
