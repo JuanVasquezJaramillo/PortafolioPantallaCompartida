@@ -12,7 +12,7 @@ export interface SoundElement {
   intensity: number; // 0 to 100
 }
 
-export type MediaType = 'podcast' | 'video' | 'interactive';
+export type MediaType = 'podcast' | 'video' | 'interactive' |'documental';
 
 export interface Cartridge {
   id: string;

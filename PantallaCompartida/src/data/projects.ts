@@ -3,15 +3,15 @@ import type { Cartridge } from '../types';
 export const UNIVERSITY_PROJECTS: Cartridge[] = [
   {
     id: 'eco-voz',
-    title: 'EcoVoz: El Latido Verde',
-    subtitle: 'INVESTIGACIÓN SONORA',
-    category: 'Podcast Ambiental',
-    description: 'Un reportaje profundo sobre el impacto del calentamiento global en los ecosistemas fluviales locales. Incluye entrevistas con biólogos, ambientalistas e indígenas de las reservas naturales.',
-    mediaType: 'podcast',
-    coverBg: 'from-emerald-900 via-emerald-800 to-green-600',
+    title: 'Battle Arena',
+    subtitle: 'Crónica: Battle Arena',
+    category: 'Crónica Social',
+    description: 'Un relato sonoro que captura la esencia de las salas de videojuegos en Popayán. A través de entrevistas con gamers locales y dueños de establecimientos, fragmentos de entrevistas, se teje una narrativa que revela cómo los videojuegos se han convertido en un espacio de socialización y creatividad para jóvenes de diversos barrios.',
+    mediaType: 'documental',
+    coverBg: 'from-purple-900 via-blue-800 to-pink-600',
     accentColor: 'emerald',
     iconName: 'mic',
-    author: 'Facultad de Ciencias y Comunicación Social',
+    author: 'Evelyn Catalina Villota Zutta, Comunicación Social Unicauca',
     year: '2026',
     tracks: [
       { title: 'Ep. 1: El Llanto del Río', duration: '02:40', url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3' },

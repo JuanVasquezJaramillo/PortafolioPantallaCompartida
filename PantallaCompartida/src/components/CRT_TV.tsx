@@ -8,6 +8,7 @@ import StaticScreen from './pantallas/StaticScreen';
 import PodcastScreen from './pantallas/PodcastScreen';
 import VideoScreen from './pantallas/VideoScreen';
 import InteractiveScreen from './pantallas/InteractiveScreen';
+import CronicaScreen from './pantallas/CronicaScreen';
 
 interface CRT_TVProps {
   insertedCartridge: Cartridge | null;
@@ -72,6 +73,8 @@ export default function CRT_TV({
 
     // CARTRIDGE VIEWPORTS
     switch (insertedCartridge.mediaType) {
+      case 'documental':
+        return <CronicaScreen insertedCartridge={insertedCartridge} isFullscreen={isFullscreen} />;
       case 'podcast':
         return <PodcastScreen insertedCartridge={insertedCartridge} />;
       case 'video':
@@ -105,7 +108,7 @@ export default function CRT_TV({
         <div className="absolute inset-0 border border-white/5 rounded-[22px] pointer-events-none z-30" />
         
         {/* Actual Video/Screen Panel with 4:3 aspect ratio */}
-        <div className="w-full aspect-[4/3] bg-black rounded-xl overflow-hidden border border-zinc-950 relative shadow-2xl flex flex-col">
+        <div className="w-full h-full aspect-[4/3] bg-black rounded-xl overflow-hidden border border-zinc-950 relative shadow-2xl flex flex-col">
           
           {/* Render Active/On screen layout */}
           {renderScreenContent()}
