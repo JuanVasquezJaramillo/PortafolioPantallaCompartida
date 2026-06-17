@@ -49,7 +49,7 @@ export default function PodcastScreen({ insertedCartridge }: PodcastScreenProps)
     return `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
   };
 
-  const activeTrack = insertedCartridge.tracks?.[activeTrackIdx] || { title: 'Unknown Track', duration: '0:00' };
+  const activeTrack = insertedCartridge.tracks?.[activeTrackIdx] || { title: insertedCartridge.title, duration: '0:00' };
 
   return (
     <div id="screen-podcast-deck" className="w-full h-full bg-[#121319] text-white p-3 flex flex-col justify-between font-sans relative overflow-hidden select-none">

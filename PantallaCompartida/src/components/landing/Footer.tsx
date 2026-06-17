@@ -73,13 +73,31 @@ export default function Footer() {
                 <div className="flex items-center space-x-1.5">
                     <span>CREADO PARA LA UNIVERSIDAD DEL CAUCA 2026-I</span>
                 </div>
-                <div className="flex list space-x-1.5">
-                    <ul>
-                        <li>AUTORES:</li>
-                        <li>DESARROLLADOR WEB Juan Pablo Vásquez Jaramillo</li>
-                        <li>nombre por agregar</li>
-                        <li>nombre por agregar</li>
-                    </ul>
+                <div className="flex-1 flex justify-center">
+                    <div className="w-full max-w-2xl rounded-3xl  py-5 text-center">
+                        <div className="mb-3">
+                            <span className="text-[9px] uppercase tracking-[0.45em] text-zinc-500">AUTORES:</span>
+                        </div>
+                        <div className="grid gap-3 text-[10px] font-mono text-zinc-300 leading-tight">
+                            <div className="flex flex-col sm:flex-row sm:justify-center sm:gap-6 text-zinc-600">
+                                <div className="space-y-1">
+                                    <p>[CRÓNICA] Evelyn Catalina Villota Zutta.</p>
+                                    <p>[PODCAST] Laura Daniela Gasca Trujillo.</p>
+                                    <p>[PODCAST] Luis Ángel Alegría Garzón.</p>
+                                    <p>[DOCUMENTAL] Camilo Medina Linares.</p>
+                                </div>
+                                <div className="space-y-1">
+                                    <p>[DOCUMENTAL] Juan Camilo Sandoval.</p>
+                                    <p>[MICHIN] Juliana Muñoz Cuchimba.</p>
+                                    <p>[HOLA] David Alejandro Ordóñez Sánchez.</p>
+                                </div>
+                            </div>
+                            <div className="border-t pt-3 grid grid-cols-1 sm:grid-cols-2 gap-3 text-zinc-600">
+                                <span>[DEV] Juan Pablo Vásquez Jaramillo.</span>
+                                <span>[DEV] Jorge Eduardo Rivera López.</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div className="flex items-center space-x-4">
                     <span>SISTEMA EMULADO 64 (STDL-VOLT)</span>
