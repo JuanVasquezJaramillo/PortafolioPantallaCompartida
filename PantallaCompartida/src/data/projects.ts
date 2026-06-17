@@ -72,20 +72,15 @@ export const UNIVERSITY_PROJECTS: Cartridge[] = [
   },
   {
     id: 'ritmos-subterraneos',
-    title: 'TO-DO',
+    title: 'INSTAGRAM: Pantalla Compartida',
     subtitle: 'PODCAST Y MEMORIA COLECTIVA',
     category: 'Proyecto de Antropología',
     description: 'lorepsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    mediaType: 'none',
+    mediaType: 'Instagram',
     coverBg: 'from-neutral-950 via-zinc-800 to-red-700',
     accentColor: 'red',
     iconName: 'music',
     author: 'Colectivo de Posgrado de Ciencias Humanas',
     year: '2025',
-    tracks: [
-      { title: 'Pista 1: Las Calles Hablan', duration: '03:05', url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3' },
-      { title: 'Pista 2: El Sello en la Pared', duration: '02:45', url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3' },
-      { title: 'Pista 3: Batalla de Voces', duration: '03:50', url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3' },
-    ],
   },
 ];
