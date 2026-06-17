@@ -88,8 +88,8 @@ export default function Footer() {
                                 </div>
                                 <div className="space-y-1">
                                     <p>[DOCUMENTAL] Juan Camilo Sandoval.</p>
-                                    <p>[MICHIN] Juliana Muñoz Cuchimba.</p>
-                                    <p>[HOLA] David Alejandro Ordóñez Sánchez.</p>
+                                    <p>[REDES] Juliana Muñoz Cuchimba.</p>
+                                    <p>[REDES] David Alejandro Ordóñez Sánchez.</p>
                                 </div>
                             </div>
                             <div className="border-t pt-3 grid grid-cols-1 sm:grid-cols-2 gap-3 text-zinc-600">
