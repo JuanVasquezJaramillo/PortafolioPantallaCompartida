@@ -3,7 +3,7 @@ import logo from '../../assets/PantallaCompartidaLogo.png';
 import reactSvg from '../../assets/react.svg';
 import viteSvg from '../../assets/vite.svg';
 
-export default function InstagramScreen({ insertedCartridge }: { insertedCartridge: any }) {
+export default function InstagramScreen({}: { insertedCartridge: any }) {
     const posts = [hero, reactSvg, viteSvg, hero, reactSvg, viteSvg];
 
     return (
