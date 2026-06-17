@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { Volume2, Tv, Maximize2, Minimize2 } from 'lucide-react';
+import { Volume2, Tv, Maximize2, Minimize2, Headphones, Video  } from 'lucide-react';
 import type { Cartridge } from '../types';
 import { playPowerToggle } from '../utils/audioEffects';
 
@@ -25,6 +25,7 @@ export default function CRT_TV({
   const [tvPower, setTvPower] = useState(true);
   const [volume, setVolume] = useState(70);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [verVideo, setVerVideo] = useState(true);
   const screenRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -46,6 +47,10 @@ export default function CRT_TV({
   const toggleTvDial = () => {
     playPowerToggle();
     setTvPower(prev => !prev);
+  };
+
+  const toggleVideoVisibility = () => {
+    setVerVideo(prev => !prev);
   };
 
   // Render active project view
@@ -78,23 +83,32 @@ export default function CRT_TV({
       case 'podcast':
         return <PodcastScreen insertedCartridge={insertedCartridge} />;
       case 'video':
-        return <VideoScreen insertedCartridge={insertedCartridge} volume={volume} />;
+        return (
+          <div className="relative w-full h-full">
+            <VideoScreen insertedCartridge={insertedCartridge} volume={volume} isVisible={verVideo} />
+            {!verVideo && (
+              <div className="absolute inset-0 z-40">
+                <PodcastScreen insertedCartridge={insertedCartridge} />
+              </div>
+            )}
+          </div>
+        );
       case 'interactive':
         return (
-          <InteractiveScreen 
-            insertedCartridge={insertedCartridge} 
-            powerOn={powerOn} 
-            isBooting={isBooting} 
+          <InteractiveScreen
+            insertedCartridge={insertedCartridge}
+            powerOn={powerOn}
+            isBooting={isBooting}
           />
         );
       default:
-        return null;
+        return <StaticScreen />;;
     }
   };
 
   return (
     <div id="retro-crt-tv" className="w-full max-w-xl mx-auto flex flex-col md:flex-row bg-[#2a2a2e] p-3 sm:p-4 rounded-[40px] border-[10px] border-[#1f1f23] shadow-[0_0_60px_rgba(0,0,0,0.8),inset_0_0_25px_rgba(0,0,0,0.9)] relative plastic-texture">
-      
+
       {/* Wooden/Charcoal Case Top/Sides 3D depth borders */}
       <div className="absolute inset-x-0 top-0 h-1.5 bg-white/5 rounded-t-2xl pointer-events-none" />
       <div className="absolute inset-x-0 bottom-0 h-1.5 bg-black/40 rounded-b-2xl pointer-events-none" />
@@ -106,10 +120,10 @@ export default function CRT_TV({
       >
         {/* Bezel inner highlight */}
         <div className="absolute inset-0 border border-white/5 rounded-[22px] pointer-events-none z-30" />
-        
+
         {/* Actual Video/Screen Panel with 4:3 aspect ratio */}
         <div className="w-full h-full aspect-[4/3] bg-black rounded-xl overflow-hidden border border-zinc-950 relative shadow-2xl flex flex-col">
-          
+
           {/* Render Active/On screen layout */}
           {renderScreenContent()}
 
@@ -143,7 +157,7 @@ export default function CRT_TV({
 
       {/* RIGHT CHASSIS: Controls Grid (Dials, Speaker, retro badging) */}
       <div className="w-full md:w-36 mt-3 md:mt-0 md:ml-3 flex flex-row md:flex-col justify-between items-center md:items-stretch bg-[#222222] p-3 rounded-2xl border border-zinc-800">
-        
+
         {/* TV Badge brand logo */}
         <div className="hidden md:flex flex-col items-center mb-2">
           <span className="text-[10px] font-retro tracking-tighter text-[#3dfa3d] font-bold">TRINITRON</span>
@@ -152,7 +166,7 @@ export default function CRT_TV({
 
         {/* Rotative mechanical tuning dialers */}
         <div className="flex md:flex-col items-center justify-center space-x-2.5 md:space-x-0 md:space-y-4 py-1 flex-grow">
-          
+
           {/* Dial 1: Tuner Channel */}
           <div className="flex flex-col items-center">
             <span className="text-[7.5px] font-mono text-zinc-500 uppercase tracking-wide">CANAL</span>
@@ -177,7 +191,7 @@ export default function CRT_TV({
                 className="absolute inset-0 opacity-0 w-full h-full cursor-ns-resize"
               />
               {/* Rotating pointer marker */}
-              <div 
+              <div
                 className="w-1.5 h-4 bg-[#ef4444] rounded-sm absolute top-0.5"
                 style={{ transform: `rotate(${(volume / 100) * 270 - 135}deg)`, transformOrigin: 'bottom center' }}
               />
@@ -189,30 +203,35 @@ export default function CRT_TV({
           <div className="flex flex-col items-center justify-center">
             <button
               onClick={toggleTvDial}
-              className={`w-7 h-7 rounded-md border-b-2 flex items-center justify-center transition-all cursor-pointer ${
-                tvPower 
-                  ? 'bg-rose-600 hover:brightness-105 active:scale-95 border-rose-800 text-white' 
+              className={`w-7 h-7 rounded-md border-b-2 flex items-center justify-center transition-all cursor-pointer ${tvPower
+                  ? 'bg-rose-600 hover:brightness-105 active:scale-95 border-rose-800 text-white'
                   : 'bg-zinc-800 border-zinc-950 text-zinc-550'
-              }`}
+                }`}
             >
               <Tv size={11} />
             </button>
             <span className="text-[7.5px] font-mono text-zinc-500 mt-1 uppercase">TV SW</span>
+            <button
+              onClick={toggleVideoVisibility}
+              className={`w-7 h-7 text-[7px] cursor-pointer uppercase tracking-wide rounded-md border border-zinc-800 px-2 py-1 transition-all ${verVideo ? 'bg-emerald-600 text-white hover:brightness-105' : 'bg-zinc-800 text-zinc-300 hover:bg-zinc-700'
+                }`}
+            >
+              {verVideo ? <Headphones size={11} /> : <Video size={11} />}
+            </button>
           </div>
 
           {/* Fullscreen toggle button */}
           <div className="flex flex-col items-center justify-center">
             <button
               onClick={toggleFullscreen}
-              className={`w-7 h-7 rounded-md border-b-2 flex items-center justify-center transition-all cursor-pointer ${
-                isFullscreen
+              className={`w-7 h-7 rounded-md border-b-2 flex items-center justify-center transition-all cursor-pointer ${isFullscreen
                   ? 'bg-emerald-600 hover:brightness-105 active:scale-95 border-emerald-800 text-white'
                   : 'bg-zinc-800 border-zinc-950 text-zinc-400 hover:bg-zinc-700'
-              }`}
+                }`}
             >
               {isFullscreen ? <Minimize2 size={11} /> : <Maximize2 size={11} />}
             </button>
-            <span className="text-[7.5px] font-mono text-zinc-500 mt-1 uppercase">ZOOM</span>
+            <span className="text-[7.5px] font-mono text-zinc-500 mt-1 uppercase">Pantalla Completa</span>
           </div>
 
         </div>
@@ -238,7 +257,6 @@ export default function CRT_TV({
         </div>
 
       </div>
-
     </div>
   );
 }

@@ -4,9 +4,10 @@ import type { Cartridge } from '../../types';
 interface VideoScreenProps {
   insertedCartridge: Cartridge;
   volume: number;
+  isVisible: boolean;
 }
 
-export default function VideoScreen({ insertedCartridge, volume }: VideoScreenProps) {
+export default function VideoScreen({ insertedCartridge, volume, isVisible }: VideoScreenProps) {
   const [videoPlayhead, setVideoPlayhead] = useState(15); // Simulated seconds
   const [videoSubtitleIdx, setVideoSubtitleIdx] = useState(0);
   const [videoMode] = useState<'real' | 'simulated'>('real');
@@ -82,7 +83,12 @@ export default function VideoScreen({ insertedCartridge, volume }: VideoScreenPr
   const showReal = videoMode === 'real' && insertedCartridge.videoEmbedUrl;
 
   return (
-    <div id="screen-video" className="w-full h-full bg-black text-white p-2.5 flex flex-col justify-between font-mono relative overflow-hidden select-none">
+    <div
+      id="screen-video"
+      className={`w-full h-full bg-black text-white p-2.5 flex flex-col justify-between font-mono relative overflow-hidden select-none transition-all duration-300 ${
+        isVisible ? 'opacity-100 z-10' : 'opacity-0 pointer-events-none -z-10'
+      }`}
+    >
       {/* Outer scanline grid & video record framework overlay */}
       <div className="absolute inset-0 border border-red-500/15 pointer-events-none z-20" />
       <div className="absolute top-2 left-2 flex items-center space-x-1.5 text-[8px] tracking-wide text-red-500 font-extrabold z-20 animate-pulse">
