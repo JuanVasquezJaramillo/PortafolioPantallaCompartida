@@ -9,6 +9,7 @@ import PodcastScreen from './pantallas/PodcastScreen';
 import VideoScreen from './pantallas/VideoScreen';
 import InteractiveScreen from './pantallas/InteractiveScreen';
 import CronicaScreen from './pantallas/CronicaScreen';
+import InstagramScreen from './pantallas/InstagramScreen';
 
 interface CRT_TVProps {
   insertedCartridge: Cartridge | null;
@@ -101,6 +102,8 @@ export default function CRT_TV({
             isBooting={isBooting}
           />
         );
+      case 'Instagram':
+        return (<InstagramScreen insertedCartridge={insertedCartridge} />);
       default:
         return <StaticScreen />;;
     }
