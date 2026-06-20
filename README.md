@@ -1,84 +1,131 @@
 # PantallaCompartida
 
-Aplicación web de portfolio con estética retro que muestra pantallas interactivas (video, podcast, estática, boot screen) y efectos visuales.
+**Portafolio interactivo con estética retro** — aplicación web que exhibe proyectos multimedia universitarios a través de una interfaz inspirada en televisores CRT y la consola Nintendo 64.
 
-## Propósito
+Inserta cartuchos, enciende la consola y explora podcasts, videos y experiencias interactivas, todo envuelto en una estética vaporwave / noventera con líneas de barrido, chiptunes y efectos glitch.
 
-`PantallaCompartida` es un proyecto de demostración y portfolio que agrupa proyectos multimedia dentro de una interfaz inspirada en pantallas antiguas (CRT). Está pensado para exponer demos, videos y experiencias interactivas con estilo nostálgico.
+---
+
+## Características
+
+- **Pantalla CRT** con secuencia de arranque, pantalla de "sin señal" y transiciones suaves
+- **Consola estilo Nintendo 64** con controles de encendido, expulsión y reinicio
+- **Estante de cartuchos** — selecciona entre 5 proyectos universitarios en 3 formatos
+- **Reproducción multimedia**:
+  - ▶️ Video (YouTube embebido)
+  - 🎧 Podcast (lista de pistas de audio)
+  - 🎛️ Interactivo (mezclador de sonido ambiental)
+- **Audio inmersivo** — efectos de sonido al insertar cartucho, encender y arrancar
+- **Guía de bienvenida y panel informativo** — flujo de onboarding y fichas técnicas de cada proyecto
+
+---
 
 ## Tecnologías
 
-- Vite
-- React
-- TypeScript
-- CSS
+| Tecnología | Propósito |
+|---|---|
+| [React 19](https://react.dev) | Framework de UI |
+| [TypeScript](https://www.typescriptlang.org) | Tipado estático |
+| [Vite](https://vitejs.dev) | Herramienta de build y servidor de desarrollo |
+| [Tailwind CSS](https://tailwindcss.com) (vía plugin de Vite) | Estilos |
+| [Motion](https://motion.dev) | Animaciones |
+| [Lucide React](https://lucide.dev) | Iconos |
+| [Express](http://expressjs.com) | Utilidades de servidor |
+| [Google Gen AI](https://ai.google.dev) | Integración con IA |
 
-## Requisitos
+---
 
-- Node.js v16+ (recomendado)
+## Primeros pasos
+
+### Requisitos previos
+
+- Node.js 18+
 - npm o yarn
 
-## Instalación
+### Instalación
 
-1. Clona el repositorio:
+```bash
+git clone <url-del-repositorio>
+cd PortafolioPantallaCompartida
+npm install
+```
 
-   git clone <url-del-repo>
-   cd PantallaCompartida
+### Desarrollo
 
-2. Instala las dependencias:
+```bash
+npm run dev
+```
 
-   npm install
+Abre la URL que indique Vite (por defecto `http://localhost:5173`).
 
-3. Inicia el servidor de desarrollo:
+### Build de producción
 
-   npm run dev
+```bash
+npm run build
+npm run preview
+```
 
-Abre la URL que indique Vite (por defecto http://localhost:5173).
+---
 
-## Scripts comunes
+## Estructura del proyecto
 
-- `npm run dev` — Inicia el servidor de desarrollo con HMR.
-- `npm run build` — Genera la versión optimizada para producción.
-- `npm run preview` — Sirve la build para previsualizarla localmente.
+```
+src/
+├── App.tsx                          # Componente raíz — estado y orquestación del layout
+├── main.tsx                         # Punto de entrada de React
+├── types.ts                         # Tipos compartidos de TypeScript
+├── components/
+│   ├── CRT_TV.tsx                   # Contenedor de pantalla CRT
+│   ├── Consola64.tsx                # Consola con encendido/expulsión/reinicio
+│   ├── EstanteCartuchos.tsx         # Selector de cartuchos
+│   ├── landing/
+│   │   ├── Header.tsx               # Barra superior con estado y datos del cartucho
+│   │   ├── Footer.tsx               # Barra de créditos
+│   │   └── fichaTecnica/
+│   │       ├── AcademicSheet.tsx    # Panel de información detallada del proyecto
+│   │       └── WelcomeGuide.tsx     # Modal de bienvenida
+│   └── pantallas/
+│       ├── BootScreen.tsx           # Animación de arranque
+│       ├── StaticScreen.tsx         # Pantalla "sin señal"
+│       ├── VideoScreen.tsx          # Reproductor de video (YouTube)
+│       ├── PodcastScreen.tsx        # Reproductor de audio con lista de pistas
+│       └── InteractiveScreen.tsx    # Mezclador de elementos de sonido
+├── data/
+│   └── projects.ts                  # Definiciones de los proyectos (cartuchos)
+├── utils/
+│   └── audioEffects.ts             # Efectos de sonido
+├── assets/                          # Imágenes y recursos estáticos
+└── index.css                        # Estilos globales
+```
 
-## Estructura del proyecto (resumen)
+---
 
-- [src/App.tsx](src/App.tsx) — Componente raíz.
-- [src/main.tsx](src/main.tsx) — Punto de montaje de React.
-- [src/components](src/components) — Componentes reutilizables, incluye `pantallas/` con las distintas vistas.
-- [src/assets](src/assets) — Imágenes y recursos estáticos.
-- [src/data/projects.ts](src/data/projects.ts) — Datos de los proyectos mostrados.
-- [src/utils](src/utils) — Utilidades (p. ej. efectos de audio).
+## Scripts disponibles
 
-## Uso / Ejemplos
+| Comando | Descripción |
+|---|---|
+| `npm run dev` | Inicia el servidor de desarrollo con HMR |
+| `npm run build` | Type-check y build para producción |
+| `npm run preview` | Previsualiza la build de producción |
+| `npm run lint` | Ejecuta ESLint en el proyecto |
 
-- Desarrollo rápido:
-
-  npm run dev
-
-  Luego abrir la URL indicada por Vite.
-
-- Generar y probar producción:
-
-  npm run build
-  npm run preview
+---
 
 ## Contribuciones
 
-1. Haz fork y crea una rama descriptiva (`feature/mi-cambio`).
-2. Asegúrate de que los cambios funcionan en desarrollo.
-3. Envía un pull request con una descripción clara de los cambios.
+1. Haz fork del repositorio
+2. Crea una rama descriptiva (`feature/mi-cambio`)
+3. Realiza los cambios y verifica que funcionen en desarrollo
+4. Abre un pull request con una descripción clara
 
-## Notas y recomendaciones
-
-- Los componentes de las pantallas están en [src/components/pantallas](src/components/pantallas).
-- Ajusta sonidos y efectos en [src/utils/audioEffects.ts](src/utils/audioEffects.ts) si trabajas con audio.
-- Para añadir proyectos, edita [src/data/projects.ts](src/data/projects.ts).
+---
 
 ## Licencia
 
-PANTALLA COMPARTIDA - UNICAUCA 2026 ©️
+PantallaCompartida — UNICAUCA 2026
+
+---
 
 ## Contacto
 
-Si tienes preguntas o sugerencias, abre un issue en el repositorio o contacta al autor.
+Abre un issue en el repositorio o contacta al autor.
