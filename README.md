@@ -122,7 +122,7 @@ src/
 
 ## Licencia
 
-PantallaCompartida — UNICAUCA 2026
+MIT License — 2026
 
 ---
 
